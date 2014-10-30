@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="${site['lang']}">
+	<head>
+		<meta charset="utf-8"/>
+		<title><%block name="title">Waya Site</%block></title>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.3.0/es5-shim.min.js"
+		<link href="${site['root']}css/main.css" rel="stylesheet" type="text/css"/>
+<%block name="head"></%block>
+	</head>
+	<body>
+		<div id="outer">
+			<header>
+				<h1><a href="${site['root']}">Alan Ondra</a></h1>
+			</header>
+			<main>
+				<div id="content">
+<%block name="content"></%block>
+				</div>
+			<main>
+		</div>
+	</body>
+</html>
