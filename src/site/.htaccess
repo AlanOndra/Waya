@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+	<IfModule dir_module>
+	    DirectoryIndex __init__.py index.py
+	</IfModule>
+
+	AddHandler wsgi-script .py
+
+	RewriteEngine on
+	RewriteBase /wsgi-bin/site/
+	RewriteRule ^(?:css|fnt|img|js)/.* public/$0 [QSA,PT,L]
+	RewriteRule ^(?:app|cms|controller|error|model|temp)/.* __init__.py/$0 [QSA,PT,L]
+	RewriteRule ^(?:config.json)/.* __init__.py/$0 [QSA,PT,L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ __init__.py/$1 [QSA,PT,L]
+</IfModule>
